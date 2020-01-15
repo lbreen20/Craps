@@ -79,7 +79,23 @@ public class Craps
             }
             else 
             {
-                System.out.println ("dealing with a point now...");
+                int point = result;
+                System.out.println ("Your point is" + result + "." + "Roll again!");
+                result = rollTheDice (in,d);
+                while (result !=7 && result != point)
+                {
+                    System.out.println ("Roll again!");
+                    result = rollTheDice (in,d);
+                }
+                if (result == 7)
+                {
+                    System.out.println ("You rolled a 7. You lose.");
+                }
+                else 
+                {
+                    System.out.println("Congratulations! You rolled your point so you win.");
+                }
+              
             }
             
            // System.out.println ("DEBUG: We're playing craps...");
