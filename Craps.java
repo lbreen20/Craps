@@ -43,16 +43,46 @@ public class Craps
         }
  
     }
+    
+    
+    public static int rollTheDice (Scanner in, Die d)
+    {
+        System.out.println ("Press enter to roll the dice");
+        in.nextLine(); //not saving their input because they are just pressing enter
+        int result1 = d.roll();
+        int result2 = d.roll();
+        int total = result1 + result2;
+        System.out.println ("You rolled a" + result1 + "and a" + result2 + "for a total of" + total);
+        return total;
+    }
+    
+    
     public static void main (String [] args)
     {
         Scanner in = new Scanner (System.in);
+        Die d = new Die();
         System.out.println ("The game of craps!");
         giveInstructions();
         System.out.println ("Let's play craps");
         String playStatus = "y";
         while (playStatus.substring(0,1).equalsIgnoreCase ("y"))
         {
-            System.out.println ("DEBUG: We're playing craps...");
+            System.out.println ("First roll!");
+            int result = rollTheDice (in,d);
+            if (result == 7 || result == 11)
+            {
+                System.out.println ("You win!");
+            }
+            else if (result == 2 || result == 3 || result == 12)
+            {
+                System.out.println ("You lose");
+            }
+            else 
+            {
+                System.out.println ("dealing with a point now...");
+            }
+            
+           // System.out.println ("DEBUG: We're playing craps...");
             
             
             
