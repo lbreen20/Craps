@@ -1,33 +1,65 @@
 
 /**
- * Write a description of class Craps here.
+ * The craps program allows a user to play the game craps, in which the rules are as
+ * follows:
+ * 1. A player rolls two six-sided dice and adds the numbers rolled together.
+2. On this first roll, a 7 or an 11 automatically wins, and a 2, 3, or 12 
+automatically loses, and play is over. If a 4, 5, 6, 8, 9, or 10 are rolled on 
+this first roll, that number becomes the "point.”
+3. The player continues to roll the two dice again until one of two things happens: 
+either they roll the"point" from that first roll again, in which case they win; or 
+they roll a 7, in which case they lose
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Luisa Breen
+ * @version 1/15/20
  */
+import java.util.Scanner;
 public class Craps
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class Craps
-     */
-    public Craps()
+    public static void giveInstructions()
     {
-        // initialise instance variables
-        x = 0;
+        Scanner in = new Scanner (System.in);
+        System.out.println ("Would you like to play craps? [answer y/n]");
+        String play = in.nextLine();
+        if (play.equals ("") || play.substring (0,1).equalsIgnoreCase("y"))
+        {
+            System.out.println ("Do you need instructions?[answer y/n]");
+            String instructions = in.nextLine();
+            if (instructions.equals ("") || instructions.substring (0,1).equalsIgnoreCase("y"))
+            {
+                System.out.println ("1. Roll two six-sided dice and adds the numbers rolled together.");
+                System.out.println ("2. If you get a 7 or 11 on this first roll you win");
+                System.out.println ("3. If you get a 2, 3, or 12 on the first roll, you lose.");
+                System.out.println ("4. Any other number you roll becomes your porint");
+                System.out.println ("5. If you did not win or lose on the first roll, keep rolling until:");
+                System.out.println ("a) you roll the point again, and win!");
+                System.out.println ("b) you roll a 7, and lose!");
+            }
+
+        }
+        else
+        {
+            System.out.println ("Okay, goodbye");
+        }
+ 
     }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
+    public static void main (String [] args)
     {
-        // put your code here
-        return x + y;
+        Scanner in = new Scanner (System.in);
+        System.out.println ("The game of craps!");
+        giveInstructions();
+        System.out.println ("Let's play craps");
+        String playStatus = "y";
+        while (playStatus.substring(0,1).equalsIgnoreCase ("y"))
+        {
+            System.out.println ("DEBUG: We're playing craps...");
+            
+            
+            
+            System.out.println ("Would you like to play again [y/n]?");
+            playStatus = in.nextLine();
+            if (playStatus.equals ("") ) {playStatus = "y";}
+        }
+        System.out.println ("Thanks for playing our game! Goodbye.");
     }
 }

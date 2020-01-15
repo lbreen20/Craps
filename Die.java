@@ -20,14 +20,22 @@ public class Die
     }
 
     /**
-     * An example of a method - replace this comment with your own
+     * the getResult() method returns the current state of the die
      *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * @return    current roll value
      */
-    public int sampleMethod(int y)
+    public int getResult()
     {
-        // put your code here
-        return x + y;
+        return result;
+    }
+    
+    /**
+     * the roll method rolls the die and returns the result
+     *
+     * @return    value between 1 and 6, inclusive
+     */
+    public int roll()
+    {
+       
     }
 }
